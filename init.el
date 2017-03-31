@@ -42,12 +42,54 @@
 (cua-mode t)
 ;;(global-set-key (kbd "C-z")  'undo)
 
-;; navigation - based on ergonomic emacs - http://ergoemacs.org/emacs/ergonomic_emacs_keybinding.html
-
 ;; file manipulation
 ;;(global-set-key (kbd "C-s") 'save-buffer)
+(defun empty-buffer()
+  (interactive)
+  (switch-to-buffer (generate-new-buffer "untitled")))
 
-;; mutiple selection
+(defun empty-frame()
+  (interactive)
+  (switch-to-buffer-other-frame (generate-new-buffer "untitled")))
+
+(global-set-key (kbd "C-t") 'empty-buffer)
+(global-set-key (kbd "C-n") 'empty-frame)
+(global-set-key (kbd "C-w") 'kill-this-buffer)
+(global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-S-s") 'write-file)
+;; (todo) assign frame and buffer relation, like modern editor tabs
+
+;; search
+(global-set-key (kbd "C-f") 'isearch-forward)
+
+;;; navigation - based on ergonomic emacs - http://ergoemacs.org/emacs/ergonomic_emacs_keybinding.html
+;; move by char
+(global-set-key (kbd "M-j") 'backward-char) 
+(global-set-key (kbd "M-l") 'forward-char)
+(global-set-key (kbd "M-i") 'previous-line)
+(global-set-key (kbd "M-k") 'next-line)
+;; move by word
+(global-set-key (kbd "C-M-j") 'backward-word)
+(global-set-key (kbd "C-M-l") 'forward-word)
+;; move begin/line
+(global-set-key (kbd "M-u") 'back-to-indentation) ;; 'move-beginning-of-line)
+(global-set-key (kbd "M-o") 'move-end-of-line)
+;; move paragraph
+(global-set-key (kbd "C-M-i") 'backward-paragraph)
+(global-set-key (kbd "C-M-k") 'forward-paragraph)
+
+;;; delete
+(global-set-key (kbd "M-s-j") 'delete-backward-char) 
+(global-set-key (kbd "M-s-l") 'delete-char)
+(global-set-key (kbd "C-M-s-j") 'backward-kill-word)
+(global-set-key (kbd "C-M-s-l") 'kill-word)
+//(global-set-key (kbd "M-s-u") 'kill-line-backward)
+(global-set-key (kbd "M-s-o") 'kill-line)
+
+;;; Cancel
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;;; mutiple selection
 (require 'multiple-cursors)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-d") 'mc/mark-previous-like-this)
@@ -65,7 +107,6 @@
 (global-set-key (kbd "M-2") 'split-window-below)
 (global-set-key (kbd "M-3") 'split-window-right)
 (global-set-key (kbd "M-4") 'make-frame-command)
-(global-set-key (kbd "C-w") 'kill-this-buffer)
 (global-set-key (kbd "M-w") 'delete-window)
 ;;  (lambda () (interactive) (kill-this-buffer) (delete-window)))
 
@@ -73,14 +114,14 @@
   "Delete the selected frame.  If the last one, kill Emacs."
   (interactive)
   (condition-case nil (delete-frame) (error (save-buffers-kill-terminal))))
-(global-set-key (kbd "M-<f4>") 'delete-frame-or-kill-emacs)
+(global-set-key (kbd "M-<f4>") 'delete-frame)
 
 ;; window and frame navigation
 (require 'windmove)
-(global-set-key (kbd "M-s-<left>")  'windmove-left)
-(global-set-key (kbd "M-s-<right>") 'windmove-right)
-(global-set-key (kbd "M-s-<up>")    'windmove-up)
-(global-set-key (kbd "M-s-<down>")  'windmove-down)
+(global-set-key (kbd "C-M-<left>")  'windmove-left)
+(global-set-key (kbd "C-M-<right>") 'windmove-right)
+(global-set-key (kbd "C-M-<up>")    'windmove-up)
+(global-set-key (kbd "C-M-<down>")  'windmove-down)
 (require 'framemove)
 (setq framemove-hook-into-windmove t)
 
