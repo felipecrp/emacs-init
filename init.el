@@ -83,7 +83,7 @@
 (global-set-key (kbd "M-s-l") 'delete-char)
 (global-set-key (kbd "C-M-s-j") 'backward-kill-word)
 (global-set-key (kbd "C-M-s-l") 'kill-word)
-//(global-set-key (kbd "M-s-u") 'kill-line-backward)
+;;(global-set-key (kbd "M-s-u") 'kill-line-backward)
 (global-set-key (kbd "M-s-o") 'kill-line)
 
 ;;; Cancel
@@ -118,10 +118,10 @@
 
 ;; window and frame navigation
 (require 'windmove)
-(global-set-key (kbd "C-M-<left>")  'windmove-left)
-(global-set-key (kbd "C-M-<right>") 'windmove-right)
-(global-set-key (kbd "C-M-<up>")    'windmove-up)
-(global-set-key (kbd "C-M-<down>")  'windmove-down)
+(global-set-key (kbd "M-s-<left>")  'windmove-left)
+(global-set-key (kbd "M-s-<right>") 'windmove-right)
+(global-set-key (kbd "M-s-<up>")    'windmove-up)
+(global-set-key (kbd "M-s-<down>")  'windmove-down)
 (require 'framemove)
 (setq framemove-hook-into-windmove t)
 
