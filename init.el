@@ -7,6 +7,12 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
+;; unset global bind
+(global-unset-key (kbd "C-p"))
+(global-unset-key (kbd "M-x"))
+(global-unset-key (kbd "C-l"))
+(global-unset-key (kbd "C-k"))
+
 ;; Appearance
 (setq inhibit-startup-message t)
 (load-theme 'solarized-light t)
@@ -42,8 +48,6 @@
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
 ;;;; Keybinds
-(global-unset-key (kbd "C-p"))
-(global-unset-key (kbd "M-x"))
 (global-set-key (kbd "C-S-p") 'execute-extended-command)
 
 ;; Quit
@@ -54,7 +58,6 @@
 
 ;; Search
 (global-set-key (kbd "C-f") 'swiper)
-(global-unset-key (kbd "C-l"))
 (global-set-key (kbd "C-l") 'avy-goto-char)
 (global-set-key (kbd "C-S-l k") 'avy-goto-word-1)
 
@@ -86,7 +89,6 @@
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-0") '(lambda()(interactive)(text-scale-set 0)))
-(global-unset-key (kbd "C-k"))
 (global-set-key (kbd "C-k C-m") 'minimap-mode)
 (global-set-key (kbd "C-k C-b") 'neotree)
 
