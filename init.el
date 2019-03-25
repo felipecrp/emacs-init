@@ -28,6 +28,8 @@
 (global-flycheck-mode)
 (projectile-mode t)
 (counsel-projectile-mode t)
+(require 'magit)
+
 
 ;; Auto complete
 (require 'minimap)
@@ -85,6 +87,44 @@
 (global-set-key (kbd "C-k C-m") 'minimap-mode)
 (global-set-key (kbd "C-k C-b") 'neotree)
 
+;; Window Management
+(global-set-key (kbd "C-k C-j") 'windmove-left)
+(global-set-key (kbd "C-k C-i") 'windmove-up)
+(global-set-key (kbd "C-k C-l") 'windmove-right)
+(global-set-key (kbd "C-k C-k") 'windmove-down)
+(global-set-key (kbd "C-k s") 'split-window-right)
+(global-set-key (kbd "C-k a") 'split-window-below)
+(global-set-key (kbd "C-k q") 'delete-other-windows)
+(global-set-key (kbd "C-k w") 'delete-window)
+(global-set-key (kbd "C-k x") 'resize-window)
+(global-set-key (kbd "C-k z") 'ace-window)
+
+;; Cursor - movement
+(global-set-key (kbd "M-j") 'backward-char)
+(global-set-key (kbd "M-i") 'previous-line)
+(global-set-key (kbd "M-l") 'forward-char)
+(global-set-key (kbd "M-k") 'next-line)
+(global-set-key (kbd "M-u") 'backward-word)
+(global-set-key (kbd "M-o") 'forward-word)
+(global-set-key (kbd "M-n") 'back-to-indentation)
+(global-set-key (kbd "M-m") 'end-of-line)
+(global-set-key (kbd "M-,") 'scroll-down-command)
+(global-set-key (kbd "M-.") 'scroll-up-command)
+
+;(global-set-key (kbd "M-") ')
+;(global-set-key (kbd "M-") ')
+;(global-set-key (kbd "M-") ')
+;; Cursor - kill
+(global-set-key (kbd "C-M-j") 'delete-backward-char)
+(global-set-key (kbd "C-M-i") 'kill-line)
+(global-set-key (kbd "C-M-l") 'delete-char)
+(global-set-key (kbd "C-M-k") 'kill-whole-line)
+(global-set-key (kbd "C-M-u") 'backward-kill-word)
+(global-set-key (kbd "C-M-o") 'kill-word)
+
+;; Git
+(global-set-key (kbd "C-k g") 'magit)
+
 ;; CUA
 (global-set-key (kbd "C-z") 'undo)
 ;;(global-set-key (kbd "C-x") 'kill-region)
@@ -100,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (multiple-cursors yaml-mode ansible visual-fill-column use-package solarized-theme neotree minimap magit flycheck evil elpy counsel-projectile company-quickhelp auctex all-the-icons ace-window))))
+    (resize-window multiple-cursors yaml-mode ansible visual-fill-column use-package solarized-theme neotree minimap magit flycheck evil elpy counsel-projectile company-quickhelp auctex all-the-icons ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
