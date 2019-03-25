@@ -59,8 +59,10 @@
 (global-set-key (kbd "C-S-l k") 'avy-goto-word-1)
 
 ;; Auto complete
-(global-set-key (kbd "M-SPC") 'company-complete)
 (global-set-key (kbd "C-/") 'company-complete)
+(global-set-key (kbd "C-;") 'company-complete)
+(global-set-key (kbd "C-.") 'company-dabbrev)
+;(global-set-key (kbd "M-SPC") 'company-complete)
 ;(global-set-key (kbd "TAB") 'company-complete)
 
 ;; Multiple section
@@ -78,6 +80,7 @@
 
 ;; Project
 (global-set-key (kbd "C-p") 'counsel-projectile-find-file)
+(global-set-key (kbd "C-k p") 'counsel-projectile-switch-project)
 
  ;; Appearance
 (global-set-key (kbd "C-=") 'text-scale-increase)
@@ -121,6 +124,7 @@
 (global-set-key (kbd "C-M-k") 'kill-whole-line)
 (global-set-key (kbd "C-M-u") 'backward-kill-word)
 (global-set-key (kbd "C-M-o") 'kill-word)
+(global-set-key (kbd "C-M-m") 'kill-line)
 
 ;; Git
 (global-set-key (kbd "C-k g") 'magit)
